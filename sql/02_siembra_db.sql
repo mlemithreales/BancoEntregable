@@ -17,12 +17,13 @@ INSERT INTO cuentas (id, numero_cuenta, saldo, cliente_id) VALUES
 ON DUPLICATE KEY UPDATE numero_cuenta = VALUES(numero_cuenta), saldo = VALUES(saldo), cliente_id = VALUES(cliente_id);
 
 INSERT INTO usuarios (id, cuenta_id, clave_hash) VALUES
-(1, 1, '$2y$12$lVP1B/djJSjcUDjtjCRDTux7m5VlzWJXxKo6dKcDV9Ut4UWEztc7O'),
-(2, 2, '$2y$12$lVP1B/djJSjcUDjtjCRDTux7m5VlzWJXxKo6dKcDV9Ut4UWEztc7O'),
-(3, 3, '$2y$12$lVP1B/djJSjcUDjtjCRDTux7m5VlzWJXxKo6dKcDV9Ut4UWEztc7O'),
-(4, 4, '$2y$12$lVP1B/djJSjcUDjtjCRDTux7m5VlzWJXxKo6dKcDV9Ut4UWEztc7O'),
-(5, 5, '$2y$12$lVP1B/djJSjcUDjtjCRDTux7m5VlzWJXxKo6dKcDV9Ut4UWEztc7O')
+(1, 1, '$2y$10$wE8wY.hby0CWh8S.4Q6DduN5rW2lO9pB9P5e/5K07hCg38V9E5B6y'),
+(2, 2, '$2y$10$wE8wY.hby0CWh8S.4Q6DduN5rW2lO9pB9P5e/5K07hCg38V9E5B6y'),
+(3, 3, '$2y$10$wE8wY.hby0CWh8S.4Q6DduN5rW2lO9pB9P5e/5K07hCg38V9E5B6y'),
+(4, 4, '$2y$10$wE8wY.hby0CWh8S.4Q6DduN5rW2lO9pB9P5e/5K07hCg38V9E5B6y'),
+(5, 5, '$2y$10$wE8wY.hby0CWh8S.4Q6DduN5rW2lO9pB9P5e/5K07hCg38V9E5B6y')
 ON DUPLICATE KEY UPDATE clave_hash = VALUES(clave_hash);
+
 
 INSERT INTO retiros (id, cuenta_id, valor, fecha) VALUES
 (1, 1, 50000.00, '2026-09-20 09:30:00'),

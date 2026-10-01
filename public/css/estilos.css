@@ -1,0 +1,25 @@
+body {
+	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+button,
+.boton {
+	display: inline-block;
+	padding: 0.65rem 1rem;
+	border: 0;
+	border-radius: 4px;
+	background-color: #1769aa;
+	color: #fff;
+	font: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+button:hover,
+.boton:hover {
+	background-color: #0f4f85;
+}
+
+nav a {
+	color: #1769aa;
+}
