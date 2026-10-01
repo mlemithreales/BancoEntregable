@@ -1,0 +1,19 @@
+{
+    "name": "meisil/banco",
+    "description": "sistema bancario ADSO",
+    "type": "project",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mlemithreales",
+            "email": "mlemithreales@gmail.com"
+        }
+    ]
+}
