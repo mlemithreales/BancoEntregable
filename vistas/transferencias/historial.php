@@ -1,22 +1,96 @@
-<section>
-    <h1>Historial de transferencias enviadas</h1>
-    <div class="resumen">
-        <div class="tarjeta"><strong><?= $resumen['cantidad'] ?></strong><span>Transferencias</span></div>
-        <div class="tarjeta"><strong>$<?= number_format($resumen['total'], 2, ',', '.') ?></strong><span>Total transferido</span></div>
-    </div>
-    <div class="tarjeta tabla-wrap">
+<div class="cabecera">
+
+    <h1>Transferencias enviadas</h1>
+
+    <nav>
+        <a href="?ruta=cuenta/panel">Inicio</a>
+
+        <a href="?ruta=transferencia/formulario">
+            Nueva transferencia
+        </a>
+    </nav>
+
+</div>
+
+
+<div class="tarjeta">
+
+    <p>
+        <strong>Total de transferencias:</strong>
+        <?= (int) ($resumen['cantidad'] ?? 0) ?>
+    </p>
+
+    <p>
+        <strong>Total transferido:</strong>
+        $
+        <?= htmlspecialchars(
+            number_format(
+                (float) ($resumen['total'] ?? 0),2,',','.'
+                
+            )
+        ) ?>
+    </p>
+
+</div>
+
+<div class="tarjeta">
+
+    <?php if (empty($transferencias)): ?>
+
+        <p>No hay transferencias registradas.</p>
+
+    <?php else: ?>
         <table>
-            <thead><tr><th>Fecha</th><th>Destino</th><th>Valor</th></tr></thead>
-            <tbody>
-            <?php foreach ($transferencias as $transferencia): ?>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($transferencia->fecha, ENT_QUOTES, 'UTF-8') ?></td>
-                    <td><?= htmlspecialchars((string) $transferencia->cuentaDestinoId, ENT_QUOTES, 'UTF-8') ?></td>
-                    <td>$<?= number_format($transferencia->valor, 2, ',', '.') ?></td>
+                    <th>Fecha</th>
+                    <th>Cuenta origen</th>
+                    <th>Cuenta destino</th>
+                    <th>Valor</th>
                 </tr>
-            <?php endforeach; ?>
-            <?php if (!$transferencias): ?><tr><td colspan="3">No hay transferencias registradas.</td></tr><?php endif; ?>
+            </thead>
+            <tbody>
+
+                <?php foreach ($transferencias as $transferencia): ?>
+
+                    <tr>
+
+                        <td>
+                            <?= htmlspecialchars(
+                                $transferencia->fecha
+                            ) ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars(
+                                $transferencia->cuentaOrigen
+                            ) ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars(
+                                $transferencia->cuentaDestino
+                            ) ?>
+                        </td>
+
+                        <td>
+                            $
+                            <?= htmlspecialchars(
+                                number_format(
+                                    $transferencia->valor,2,',','.'
+ 
+                                )
+                            ) ?>
+                        </td>
+
+                    </tr>
+
+                <?php endforeach; ?>
+
             </tbody>
+
         </table>
-    </div>
-</section>
+
+    <?php endif; ?>
+
+</div>

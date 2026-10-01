@@ -11,5 +11,5 @@
         </label>
         <button type="submit">Ingresar</button>
     </form>
-    <p class="ayuda">Para las cuentas sembradas de prueba, la contraseña es <strong>123456</strong>.</p>
+   
 </section>

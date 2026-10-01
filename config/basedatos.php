@@ -5,6 +5,6 @@ return [
     'puerto'    => '3306',
     'basedatos' => 'db_banco_adso',
     'usuario'   => 'root',
-    'clave'     => '1208',
+    'clave'     => 'Adso2026*',
     'charset'   => 'utf8mb4',
 ];

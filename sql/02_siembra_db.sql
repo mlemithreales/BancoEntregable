@@ -1,7 +1,7 @@
 USE db_banco_adso;
 
 INSERT INTO clientes (id, nombre) VALUES
-(1, 'Yendris'),
+(1, 'Yendris'),.
 (2, 'Yulieth'),
 (3, 'Ana'),
 (4, 'Andres'),

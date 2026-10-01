@@ -1,13 +1,11 @@
-CREATE DATABASE IF NOT EXISTS db_banco_adso
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS db_banco_adso;
 
 USE db_banco_adso;
 
 CREATE TABLE IF NOT EXISTS clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 CREATE TABLE IF NOT EXISTS cuentas (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,7 +15,7 @@ CREATE TABLE IF NOT EXISTS cuentas (
     CONSTRAINT fk_cuentas_cliente
         FOREIGN KEY (cliente_id) REFERENCES clientes(id)
         ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -26,7 +24,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     CONSTRAINT fk_usuarios_cuenta
         FOREIGN KEY (cuenta_id) REFERENCES cuentas(id)
         ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 CREATE TABLE IF NOT EXISTS retiros (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -36,7 +34,7 @@ CREATE TABLE IF NOT EXISTS retiros (
     CONSTRAINT fk_retiros_cuenta
         FOREIGN KEY (cuenta_id) REFERENCES cuentas(id)
         ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 CREATE TABLE IF NOT EXISTS transferencias (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -50,4 +48,4 @@ CREATE TABLE IF NOT EXISTS transferencias (
     CONSTRAINT fk_transferencias_destino
         FOREIGN KEY (cuenta_destino_id) REFERENCES cuentas(id)
         ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
