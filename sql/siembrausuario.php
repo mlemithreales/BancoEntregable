@@ -27,7 +27,9 @@ $usuarios = [
     [
         'cuenta_id' => 5,
         'clave' => '1234567'
-    ]
+    ],
+
+
 ];
 
 $sql = "

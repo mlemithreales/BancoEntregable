@@ -9,9 +9,9 @@ class ControladorBase
         Vista::renderizar($vista, $datos);
     }
 
-    protected function redirigir(string $ruta): never
+    protected function redirigir(string $ruta): never //indica nunca va a terminar de ejecutarse de forma normal, ya que el exit corta el programa
     {
-        
+        // Obtiene la ruta base del script y construye la URL completa para redirigir
         $base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
         header('Location: ' . $base . '/' . ltrim($ruta, '/'));
         exit;

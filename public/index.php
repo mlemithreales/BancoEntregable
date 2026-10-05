@@ -26,10 +26,9 @@ $router->get('/transferencia', [$transferencia, 'formulario']);
 $router->post('/transferencia', [$transferencia, 'guardar']);
 $router->get('/transferencias', [$transferencia, 'historial']);
 
-$ruta = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/';
-$base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
-if ($base !== '' && $base !== '/' && str_starts_with($ruta, $base)) {
-    $ruta = substr($ruta, strlen($base)) ?: '/';
-}
+
+// obtiene la ruta y le quita parametos adicionales  ej: /cuenta
+$ruta = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/'; 
+
 
 $router->ejecutar($_SERVER['REQUEST_METHOD'], $ruta);
